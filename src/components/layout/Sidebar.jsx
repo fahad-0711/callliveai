@@ -3,9 +3,10 @@ import { NavLink, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, Users, GitBranch, Building2,
   CalendarDays, Contact2, BarChart3, Settings2,
-  RadioTower, ChevronLeft, ChevronRight, Mic,
+  ChevronLeft, ChevronRight, Mic,
 } from 'lucide-react';
 import { currentUser, agents } from '../../data/mockData';
+import Logo from '../ui/Logo';
 
 const navSections = [
   {
@@ -77,31 +78,7 @@ const Sidebar = memo(function Sidebar() {
         justifyContent: collapsed ? 'center' : 'flex-start',
         position: 'relative',
       }}>
-        <div style={{
-          width: 36,
-          height: 36,
-          borderRadius: 10,
-          background: 'rgba(0,245,255,0.1)',
-          border: '1px solid rgba(0,245,255,0.3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 0 16px rgba(0,245,255,0.3)',
-          flexShrink: 0,
-        }}>
-          <RadioTower size={18} style={{ color: 'var(--cyan)' }} />
-        </div>
-        {!collapsed && (
-          <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 20, lineHeight: 1.2 }}>
-              <span style={{ color: 'var(--cyan)' }}>Call</span>
-              <span style={{ color: 'var(--text-primary)' }}>LiveAI</span>
-            </div>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.5px' }}>
-              Voice CRM Platform
-            </div>
-          </div>
-        )}
+        <Logo collapsed={collapsed} />
 
         {/* Collapse toggle */}
         <button
